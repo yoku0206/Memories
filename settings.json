@@ -1,0 +1,56 @@
+{
+    "TOKEN": "ODEzNzM4MzAyNjkxNDc1NDc5.YDTq2Q.26k1sTLN8gjgnUaNAxIuadId2dk",
+    "PREFIX": "s!",
+    "Owner_id": 480906273026473986,
+    "Now_Month": "March",
+    "month": {
+        "January": {
+            "name": "一月",
+            "day": 31
+        },
+        "February": {
+            "name": "二月",
+            "day": 28
+        },
+        "March": {
+            "name": "三月",
+            "day": 31
+        },
+        "April": {
+            "name": "四月",
+            "day": 30
+        },
+        "May": {
+            "name": "五月",
+            "day": 31
+        },
+        "June": {
+            "name": "六月",
+            "day": 30
+        },
+        "July": {
+            "name": "七月",
+            "day": 31
+        },
+        "August": {
+            "name": "八月",
+            "day": 31
+        },
+        "September": {
+            "name": "九月",
+            "day": 30
+        },
+        "October": {
+            "name": "十月",
+            "day": 31
+        },
+        "November": {
+            "name": "十一月",
+            "day": 30
+        },
+        "December": {
+            "name": "十二月",
+            "day": 31
+        }
+    }
+}
