@@ -1,9 +1,11 @@
+# Custom
+settings.json
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-
-settings.json
 
 # C extensions
 *.so
