@@ -9,7 +9,7 @@ intens = discord.Intents.all()
 with open("settings.json", mode= 'r', encoding= 'utf8') as jfile:
     jdata = json.load(jfile)
 
-Toktn = os.getenv("Token")
+Token = os.getenv("Token")
 
 
 def time_get():
