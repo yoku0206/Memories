@@ -9,7 +9,7 @@ intens = discord.Intents.all()
 with open("settings.json", mode= 'r', encoding= 'utf8') as jfile:
     jdata = json.load(jfile)
 
-with open('Token.0', mode='r', encoding='utf8') as tfile:
+with open('data/Token.0', mode='r', encoding='utf8') as tfile:
     Token = tfile.read()
 
 
