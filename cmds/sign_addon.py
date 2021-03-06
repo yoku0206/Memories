@@ -33,7 +33,7 @@ class Sign_Addon(Cog_Extension):
         embed.set_thumbnail(url=ctx.guild.icon_url)
         for i in range(num, num_end):
             member = await MemberConverter().convert(ctx, data[i][0])
-            embed.add_field(name=f"{num}. {member.name}#{member.discriminator} ", value=f"總共簽到： **{data[i][1]}** 天", inline=False)
+            embed.add_field(name=f"{i}. {member.name}#{member.discriminator} ", value=f"總共簽到： **{data[i][1]}** 天", inline=False)
         message = await ctx.send(embed=embed)
         await asyncio.sleep(60)
         await message.delete()
