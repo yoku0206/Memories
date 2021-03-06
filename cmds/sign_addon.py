@@ -31,14 +31,9 @@ class Sign_Addon(Cog_Extension):
 
         embed=discord.Embed(title=f"{ctx.guild.name}", description="**簽到天數排行榜**", color=ctx.author.color, timestamp=Setting.time_get(self))
         embed.set_thumbnail(url=ctx.guild.icon_url)
-        for i in data:
-            num += 1
-            member = await MemberConverter().convert(ctx, i[0])
-            embed.add_field(name=f"{num}. {member.name}#{member.discriminator} ", value=f"總共簽到： **{i[1]}** 天", inline=False)
-            if num == num_end:
-                break
-            else:
-                pass
+        for i in range(num, num_end):
+            member = await MemberConverter().convert(ctx, data[i][0])
+            embed.add_field(name=f"{num}. {member.name}#{member.discriminator} ", value=f"總共簽到： **{data[i][1]}** 天", inline=False)
         message = await ctx.send(embed=embed)
         await asyncio.sleep(60)
         await message.delete()
