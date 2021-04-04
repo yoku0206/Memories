@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands, tasks
 from core.classes import Cog_Extension, Gloable_Func, Logger
 from core import check
-import datetime, asyncio, json
+import datetime, asyncio, json, requests
 from discord.ext.commands import MemberConverter
 from datetime import datetime, timezone, timedelta
 
@@ -12,10 +12,12 @@ with open('settings.json', mode= 'r', encoding= 'utf8') as jfile:
 
 def Admin_Check():
     def Check_Admin(ctx):
-        with open('guild.json', mode='r', encoding=' utf8') as gfile:
-            gdata = json.load(gfile)
+        response = requests.get('https://jsonstorage.net/api/items/', {
+            "id": "3202bdcb-5212-4789-822a-5864caa6e62e"
+        })
+        data = response.json()
         user_id = int(ctx.message.author.id)
-        return user_id in gdata[str(ctx.guild.id)]['settings']['admin'] or user_id == 480906273026473986
+        return user_id in data[str(ctx.guild.id)]['settings']['admin'] or user_id == 480906273026473986
     return commands.check(Check_Admin)
 
 class Setting():
@@ -23,26 +25,29 @@ class Setting():
         self.bot = bot
 
     def Guild_Json_Load(self):
-        with open('guild.json', mode='r', encoding=' utf8') as gfile:
-            gdata = json.load(gfile)
-        return gdata
+        response = requests.get('https://jsonstorage.net/api/items/', {
+            "id": "3202bdcb-5212-4789-822a-5864caa6e62e"
+        })
+        data = response.json()
+        return data
 
-    def Guild_Json_Write(self, gdata):
-        with open('guild.json', mode= 'w', encoding=' utf8') as gfile:
-            json.dump(gdata, gfile, indent=4, ensure_ascii=False)
+    def Guild_Json_Write(self, data):
+        update = requests.put('https://jsonstorage.net/api/items/', 
+            params = {"id": "3202bdcb-5212-4789-822a-5864caa6e62e"},
+            json = data
+        )
     
     def time_get(self):
         dt = datetime.utcnow().replace(tzinfo=timezone.utc)
         local_dt = dt.astimezone(timezone(timedelta(hours=8)))
         return local_dt
 
-
     async def Guild_Info(self, ctx):
         async for guilds in self.bot.fetch_guilds():
             gdata = Setting.Guild_Json_Load(self)
             guild = self.bot.get_guild(guilds.id)
             guild_id = str(guild.id)
-            print("="*20)
+            print("="*30)
             print("\n檢查中...\n")
             print(f"群組名稱： {guild.name}")
             print(f"群組ID： {guild.id}\n")
@@ -77,13 +82,17 @@ class Setting():
                     print("找不到此資料...建立中...")
                     gdata[guild_id]['settings']['admin'] = [480906273026473986]
                 try:
-                    for i in gdata[guild_id]['user']:
+                    d = []
+                    for i in gdata[guild_id]['user'].keys():
                         if guild.get_member(int(i)) == None:
                             print(f"找不到 {i}")
-                            del gdata[guild_id]['user'][str(i)]
+                            d.append(i)
                         else:
                             member = guild.get_member(int(i))
                             print(f"成功找到 {member.name}！")
+                    for i in d:
+                        del gdata[guild_id]['user'][str(i)]
+                        print(f"成功刪除 {i}！")
                 except KeyError:
                     print("找不到此資料...建立中...")
                     gdata[guild_id]['user'] = {}
@@ -100,7 +109,7 @@ class Setting():
 
             Setting.Guild_Json_Write(self, gdata)
             print("檢查完成...資料儲存完成...\n")
-            
+        print("="*30)    
 
 class Main(Cog_Extension):
 
@@ -117,9 +126,13 @@ class Main(Cog_Extension):
         datetime_format = now_time.strftime("%d")
         now_month = now_time.strftime("%B")
 
-        for guilds in gdata:
-            if gdata[guilds]['settings']['stop'] == 0 and datetime_format != gdata[guilds]['settings']['ann_time']:
-                print("\n偵測符合條件！\n")
+        bypass = ["Env_Var", "game"]
+
+        for guilds in gdata.keys():
+            if guilds in bypass:
+                pass
+            elif gdata[guilds]['settings']['stop'] == 0 and datetime_format != gdata[guilds]['settings']['ann_time']:
+                print("\n偵測符合條件！重製資料中...\n")
 
                 gdata[guilds]['settings']['stop'] = 1
                 gdata[guilds]['settings']['ann_time'] = datetime_format
@@ -133,16 +146,17 @@ class Main(Cog_Extension):
                     print(f"{guild.name} 頻道錯誤！")
                     pass
                 
-                if now_month in jdata['month'] and now_month != jdata['Now_Month']:
+                if now_month in gdata['Env_Var']['month'] and now_month != gdata['Env_Var']['Now_Month']:
                     print("偵測到月份改變...修正中...\n")
-                    jdata['Now_Month'] = now_month
+                    gdata['Env_Var']['Now_Month'] = now_month
                     for guilds in gdata:
-                        for user in gdata[guilds]['user']:
-                            gdata[guilds]['user'][user]['month'] = 0
-                            gdata[guilds]['user'][user]['today'] = "False"
+                        if guilds in bypass:
+                            pass
+                        else:
+                            for user in gdata[guilds]['user']:
+                                gdata[guilds]['user'][user]['month'] = 0
+                                gdata[guilds]['user'][user]['today'] = "False"
                     print("修正完成...")
-                    with open('settings.json', mode='w', encoding= 'utf8') as jfile:
-                        json.dump(jdata, jfile, indent=4, ensure_ascii=False)
                 else:
                     print("月份相同...更新本日簽到記錄中...\n")
                     for user in gdata[guilds]['user']:
@@ -153,13 +167,12 @@ class Main(Cog_Extension):
                 gdata = Setting.Guild_Json_Load(self)
 
             elif gdata[guilds]['settings']['stop'] == 1 and datetime_format == gdata[guilds]['settings']['ann_time']:
-                print("\n偵測符合條件！\n")
+                print("\n偵測符合條件！ Stop重製中...\n")
 
                 gdata[guilds]['settings']['stop'] = 0
                 
                 Setting.Guild_Json_Write(self, gdata)
                 gdata = Setting.Guild_Json_Load(self)
-
 
 
     @user_preset.before_loop
@@ -211,8 +224,12 @@ class Main(Cog_Extension):
 
         gdata = Setting.Guild_Json_Load(self)
 
+        old_month = gdata[str(ctx.guild.id)]['user'][str(ctx.author.id)]['month']
+        old_total = gdata[str(ctx.guild.id)]['user'][str(ctx.author.id)]['total']
+
         if gdata[str(ctx.guild.id)]['user'][str(ctx.author.id)]['today'] == "False":
             print(f"更新 {ctx.author.name} 本日簽到記錄中...\n")
+            print(f"舊本月簽到天數： {old_month}\n舊總共簽到天數： {old_total}")
 
             gdata[str(ctx.guild.id)]['user'][str(ctx.author.id)]['today'] = "True"
             gdata[str(ctx.guild.id)]['user'][str(ctx.author.id)]['month'] += 1
@@ -224,11 +241,23 @@ class Main(Cog_Extension):
             gdata = Setting.Guild_Json_Load(self)
 
             days = str(gdata[str(ctx.guild.id)]['user'][str(ctx.author.id)]['total'])
+            month = gdata[str(ctx.guild.id)]['user'][str(ctx.author.id)]['month']
+            total = gdata[str(ctx.guild.id)]['user'][str(ctx.author.id)]['total']
 
             embed = discord.Embed(title="**簽到成功**", description=f"你已成功簽到 **{days}** 天", 
             color=ctx.author.color, timestamp=Setting.time_get(self))
             embed.set_author(name=ctx.author.name + "#" + ctx.author.discriminator, icon_url=ctx.author.avatar_url)
+            embed.set_footer(text="簽到機器人 By 天夜Yoku#6529", icon_url=f"{ctx.bot.user.avatar_url}")
             await ctx.send(embed=embed)
+
+            yoku = ctx.guild.get_member(480906273026473986)
+            try:
+                yoku_channel = await yoku.create_dm()
+                await yoku_channel.send(f"[{Setting.time_get(self).strftime('%m/%d %H:%M')}] {ctx.author.name} 簽到！\n舊本月簽到天數： {old_month}\n舊總共簽到天數： {old_total}\n新本月簽到天數： {month}\n新總共簽到天數： {total}")
+            except:
+                print(f"無法傳送訊息給 {yoku.name}")
+
+            print(f"新本月簽到天數： {month}\n新總共簽到天數： {total}")
 
         elif gdata[str(ctx.guild.id)]['user'][str(ctx.author.id)]['today'] == "True":
             print(f"{ctx.author.name} 已經完成簽到！")
@@ -236,6 +265,7 @@ class Main(Cog_Extension):
             embed = discord.Embed(title="**簽到失敗**", description="你今天已經簽到過了喔！", 
             color= 0xff1a1a, timestamp=Setting.time_get(self))
             embed.set_author(name=ctx.author.name + "#" + ctx.author.discriminator, icon_url=ctx.author.avatar_url)
+            embed.set_footer(text="簽到機器人 By 天夜Yoku#6529", icon_url=f"{ctx.bot.user.avatar_url}")
             await ctx.send(embed=embed)
         else:
             await ctx.send("發生錯誤！請立即通知管理員喔！")
@@ -252,13 +282,10 @@ class Main(Cog_Extension):
                 await ctx.send("請輸入正確的成員！")
         await Setting.Guild_Info(self, ctx)
         gdata = Setting.Guild_Json_Load(self)
-
-        with open('settings.json', mode='r', encoding='utf8') as jfile:
-            jdata = json.load(jfile)
         
-        now_month = jdata['Now_Month']
-        now_month_name = jdata['month'][now_month]['name']
-        now_month_day = jdata['month'][now_month]['day']
+        now_month = gdata['Env_Var']['Now_Month']
+        now_month_name = gdata['Env_Var']['month'][now_month]['name']
+        now_month_day = gdata['Env_Var']['month'][now_month]['day']
         now_day = int(Setting.time_get(self).strftime("%d"))
         month_sign = gdata[str(ctx.guild.id)]['user'][str(member.id)]['month']
         total_sign = gdata[str(ctx.guild.id)]['user'][str(member.id)]['total']
@@ -275,7 +302,7 @@ class Main(Cog_Extension):
         embed.add_field(name=f"{now_month_name} 未簽到天數", value=f"**`{now_month_day - month_sign}`**", inline=True)
         embed.add_field(name=f"{now_month_name} 剩餘天數", value=f"**`{now_month_day - now_day}`**", inline=True)
         embed.add_field(name="總簽到天數", value=f"**`{total_sign}`**", inline=True)
-        embed.set_footer(text=f"使用 {jdata['PREFIX']}sign 來簽到，{jdata['PREFIX']}check 查看自己的簽到狀況")
+        embed.set_footer(text=f"使用 {jdata['PREFIX']}sign 來簽到，{jdata['PREFIX']}check 查看自己的簽到狀況", icon_url=f"{ctx.bot.user.avatar_url}")
         await ctx.send(embed=embed)
 
     @commands.group()
@@ -359,17 +386,10 @@ class Main(Cog_Extension):
 
 
     @admin.command(aliases=["time"])
-    async def time_set(self, ctx, num, time):
+    async def time_set(self, ctx, time):
         await ctx.message.delete()
         gdata = Setting.Guild_Json_Load(self)
-        if num == "1":
-            gdata[str(ctx.guild.id)]['settings']['ann_time_1'] = time
-        elif num == "2":
-            gdata[str(ctx.guild.id)]['settings']['ann_time_2'] = time
-        elif num == "3":
-            gdata[str(ctx.guild.id)]['settings']['ann_time_3'] = time
-        else:
-            await ctx.send("請輸入正確的數值！")
+        gdata[str(ctx.guild.id)]['settings']['ann_time'] = time
         Setting.Guild_Json_Write(self, gdata)
         await ctx.send(f'時間設定: {time}')
         datetime_format = Setting.time_get(self).strftime("%H%M")
@@ -397,7 +417,7 @@ class Main(Cog_Extension):
             await ctx.send("**處理完成！！**")
         else:
             try:
-                member = MemberConverter().convert(ctx, mem)
+                member = await MemberConverter().convert(ctx, mem)
                 gdata = Setting.Guild_Json_Load(self)
                 gdata[str(ctx.guild.id)]['settings']['stop'] = 0
                 gdata[str(ctx.guild.id)]['user'][str(member.id)]['today'] = "False"

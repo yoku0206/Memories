@@ -9,9 +9,6 @@ intens = discord.Intents.all()
 with open("settings.json", mode= 'r', encoding= 'utf8') as jfile:
     jdata = json.load(jfile)
 
-Token = os.getenv("Token")
-
-
 def time_get():
     dt = datetime.utcnow().replace(tzinfo=timezone.utc)
     local_dt = dt.astimezone(timezone(timedelta(hours=8)))
@@ -32,4 +29,4 @@ for filename in os.listdir("./cmds"):
 
 if __name__ == "__main__":
     # keep_alive.keep_alive()
-    bot.run(Token)
+    bot.run(jdata["TOKEN"])

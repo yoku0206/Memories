@@ -29,11 +29,12 @@ class Sign_Addon(Cog_Extension):
         data_page = len(data) // 10
         data_count = len(data) % 10
 
+        if data_count > 0:
+            j = 1
+        else:
+            j = 0
+
         if page > data_page:
-            if data_count > 0:
-                j = 1
-            else:
-                j = 0
             page = len(data) // 10 + j
         else:
             pass
@@ -43,7 +44,7 @@ class Sign_Addon(Cog_Extension):
 
         embed=discord.Embed(title=f"{ctx.guild.name}", description=f"**簽到天數排行榜** {num + 1} ～ {num_end}", color=ctx.author.color, timestamp=Setting.time_get(self))
         embed.set_thumbnail(url=ctx.guild.icon_url)
-        embed.set_footer(text=f"Page: {page}/{data_page + j}")
+        embed.set_footer(text=f"Page: {page}/{data_page + j}",icon_url=f"{ctx.bot.user.avatar_url}")
         for i in range(num, num_end):
             try:
                 member = await MemberConverter().convert(ctx, data[i][0])
@@ -53,8 +54,6 @@ class Sign_Addon(Cog_Extension):
         message = await ctx.send(embed=embed)
         await asyncio.sleep(60)
         await message.delete()
-
-
 
 
 

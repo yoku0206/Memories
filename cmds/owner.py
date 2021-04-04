@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from core.classes import Cog_Extension
+from cmds.main import Setting
 import json, asyncio, os, datetime
 
 with open('settings.json', mode='r',encoding='utf8') as jfile:
@@ -46,7 +47,6 @@ class Owner(Cog_Extension):
         await ctx.send("Shutting down...")
         await asyncio.sleep(1)
         await self.bot.logout()
-
 
 def setup(bot):
     bot.add_cog(Owner(bot))
