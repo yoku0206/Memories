@@ -46,9 +46,9 @@ class Infomation(Cog_Extension, name='資訊', description='有關資訊的內�
                 user = await MemberConverter().convert(ctx, target)
             except:
                 message = await ctx.send("**[錯誤]** 請輸入正確的使用者！")
-                user = None
                 await asyncio.sleep(60)
                 await message.delete()
+                return
         
         status_dict = {
             "online": "線上",
@@ -64,47 +64,44 @@ class Infomation(Cog_Extension, name='資訊', description='有關資訊的內�
             "Streaming": "直播中"
         }
         
-        if user != None:
-            activity_type = str(user.activity.type).split('.')[-1].title()
+        activity_type = str(user.activity.type).split('.')[-1].title()
 
-            if str(user.status) in status_dict:
-                status = status_dict[str(user.status)]
-            else:
-                status = str(user.status)
-            if user.activity:
-                if activity_type in activity_dict:
-                    activity = activity_dict[activity_type]
-                else:
-                    activity = activity_type
-                activety_name = f"\n```{user.activity.name}```"
-            else:
-                activity = "N/A"
-                activety_name = ""
-
-            embed_fields = {
-                "名稱": user.name,
-                "ID": user.id,
-                "機器人？": user.bot,
-                "狀態": status,
-                "活動": f"{activity} {activety_name}",
-                "身分組": user.top_role.name,
-                "建立日期": user.created_at.strftime('%Y/%m/%d %H:%M:%S'),
-                "加入日期": user.joined_at.strftime('%Y/%m/%d %H:%M:%S'),
-                "加成": bool(user.premium_since)
-            }
-
-            embed = discord.Embed(title = "使用者資訊",
-                color = user.color, 
-                timestamp = datetime.datetime.today())
-            embed.set_thumbnail(url=f"{user.avatar_url}")
-            for name in embed_fields:
-                embed.add_field(name= name, value= embed_fields[name], inline= True)
-            embed.set_footer(text="簽到機器人 By 天夜Yoku#6529", icon_url=f"{ctx.bot.user.avatar_url}")
-            em = await ctx.send(embed= embed)
-            await asyncio.sleep(60)
-            await em.delete()
+        if str(user.status) in status_dict:
+            status = status_dict[str(user.status)]
         else:
-            pass
+            status = str(user.status)
+        if user.activity:
+            if activity_type in activity_dict:
+                activity = activity_dict[activity_type]
+            else:
+                activity = activity_type
+            activety_name = f"\n```{user.activity.name}```"
+        else:
+            activity = "N/A"
+            activety_name = ""
+
+        embed_fields = {
+            "名稱": user.name,
+            "ID": user.id,
+            "機器人？": user.bot,
+            "狀態": status,
+            "活動": f"{activity} {activety_name}",
+            "身分組": user.top_role.name,
+            "建立日期": user.created_at.strftime('%Y/%m/%d %H:%M:%S'),
+            "加入日期": user.joined_at.strftime('%Y/%m/%d %H:%M:%S'),
+            "加成": bool(user.premium_since)
+        }
+
+        embed = discord.Embed(title = "使用者資訊",
+            color = user.color, 
+            timestamp = datetime.datetime.today())
+        embed.set_thumbnail(url=f"{user.avatar_url}")
+        for name in embed_fields:
+            embed.add_field(name= name, value= embed_fields[name], inline= True)
+        embed.set_footer(text="簽到機器人 By 天夜Yoku#6529", icon_url=f"{ctx.bot.user.avatar_url}")
+        em = await ctx.send(embed= embed)
+        await asyncio.sleep(60)
+        await em.delete()
         
 
 

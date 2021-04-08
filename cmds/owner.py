@@ -12,16 +12,22 @@ class Owner(Cog_Extension):
     @commands.command()
     @commands.is_owner()
     async def load(self, ctx, extension):
+        await ctx.message.delete()
         self.bot.load_extension(f'cmds.{extension}')
-        await ctx.send(f'載入 **{extension}** 成功')
+        msg = await ctx.send(f'載入 **{extension}** 成功')
         print(f"載入 {extension} 成功\n資訊: {ctx.guild} {ctx.channel} {ctx.author}")
+        await asyncio.sleep(1)
+        await msg.delete()
         
     @commands.command()
     @commands.is_owner()
     async def unload(self, ctx, extension):
+        await ctx.message.delete()
         self.bot.unload_extension(f'cmds.{extension}')
-        await ctx.send(f'卸載 **{extension}** 成功')
+        msg = await ctx.send(f'卸載 **{extension}** 成功')
         print(f"卸載 {extension} 成功\n資訊: {ctx.guild} {ctx.channel} {ctx.author}")
+        await asyncio.sleep(1)
+        await msg.delete()
 
     @commands.command()
     @commands.is_owner()
