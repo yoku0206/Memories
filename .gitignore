@@ -1,6 +1,8 @@
 # Custom
 settings.json
 data/Token.0
+__pycache__
+cmds/__pycache__
 
 
 # Byte-compiled / optimized / DLL files
