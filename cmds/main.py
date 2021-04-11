@@ -130,7 +130,7 @@ class Main(Cog_Extension):
 
         for guilds in gdata.keys():
             if guilds in bypass:
-                return
+                pass
             else:
                 if self.bot.get_guild(int(guilds)) == None:
                     print(f"刪除 {gdata[guilds]['name']} 中...")
@@ -142,7 +142,7 @@ class Main(Cog_Extension):
 
         for guilds in gdata.keys():
             if guilds in bypass:
-                return
+                pass
             elif gdata[guilds]['settings']['stop'] == 0 and datetime_format != gdata[guilds]['settings']['ann_time']:
                 print("\n偵測符合條件！重製資料中...\n")
 
