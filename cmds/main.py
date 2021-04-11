@@ -132,7 +132,7 @@ class Main(Cog_Extension):
             if guilds in bypass:
                 return
             else:
-                if self.bpt.get_guild(int(guilds)) == None:
+                if self.bot.get_guild(int(guilds)) == None:
                     print(f"刪除 {gdata[guilds]['name']} 中...")
                     del gdata[guilds]
                 else:
