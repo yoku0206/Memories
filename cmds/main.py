@@ -130,7 +130,19 @@ class Main(Cog_Extension):
 
         for guilds in gdata.keys():
             if guilds in bypass:
-                pass
+                return
+            else:
+                if self.bpt.get_guild(int(guilds)) == None:
+                    print(f"刪除 {gdata[guilds]['name']} 中...")
+                    del gdata[guilds]
+                else:
+                    pass
+                Setting.Guild_Json_Write(self, gdata)
+                gdata = Setting.Guild_Json_Load(self)
+
+        for guilds in gdata.keys():
+            if guilds in bypass:
+                return
             elif gdata[guilds]['settings']['stop'] == 0 and datetime_format != gdata[guilds]['settings']['ann_time']:
                 print("\n偵測符合條件！重製資料中...\n")
 

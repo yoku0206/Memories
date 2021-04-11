@@ -1,6 +1,6 @@
 {
   "Env_Var": {
-    "Now_Month": "March",
+    "Now_Month": "April",
     "month": {
       "January": {
         "name": "一月",
@@ -55,75 +55,98 @@
   "480908191123636234": {
     "name": "天武世紀",
     "settings": {
-      "ann_time": "23",
+      "ann_time": "10",
       "admin": [
         480906273026473986
       ],
-      "stop": 0,
+      "stop": 1,
       "channel": 483253713088020510
     },
     "user": {
       "480906273026473986": {
         "name": "天夜Yoku",
         "today": "False",
-        "month": 6,
-        "total": 10
+        "month": 1,
+        "total": 11
       },
       "483207677741236235": {
         "name": "天夜的老婆",
         "today": "False",
-        "month": 2,
+        "month": 0,
         "total": 2
       }
+    },
+    "game": {
+      "lottery": [
+        3,
+        22,
+        23,
+        4,
+        21,
+        10,
+        18,
+        1,
+        9,
+        6,
+        2,
+        16,
+        11,
+        5,
+        7,
+        17,
+        20,
+        15,
+        14,
+        25,
+        19,
+        13,
+        12,
+        24,
+        8
+      ]
     }
   },
   "755413775435300886": {
     "name": "❖派狼聚集地❖—( º﹃º )",
     "settings": {
-      "ann_time": "23",
+      "ann_time": "10",
       "admin": [
         480906273026473986,
         483207677741236235
       ],
-      "stop": 0,
+      "stop": 1,
       "channel": 772117664877379624
     },
     "user": {
       "480906273026473986": {
         "name": "天夜Yoku",
         "today": "True",
-        "month": 21,
-        "total": 30
+        "month": 10,
+        "total": 46
       },
       "627339715976364042": {
         "name": "℡╮回憶ひ心定〆",
-        "today": "True",
-        "month": 15,
-        "total": 21
+        "today": "False",
+        "month": 2,
+        "total": 30
       },
       "400275443854344192": {
         "name": "WaDe",
-        "today": "True",
-        "month": 6,
-        "total": 9
-      },
-      "193658867110903808": {
-        "name": "寧兒",
-        "today": "True",
-        "month": 6,
-        "total": 9
+        "today": "False",
+        "month": 1,
+        "total": 17
       },
       "518401269971550218": {
         "name": "離沁",
         "today": "False",
-        "month": 5,
-        "total": 8
+        "month": 1,
+        "total": 9
       },
       "620935421786062871": {
         "name": "將將(x",
         "today": "True",
-        "month": 15,
-        "total": 19
+        "month": 8,
+        "total": 35
       },
       "811153061879480340": {
         "name": "水樹 尤伊",
@@ -139,26 +162,20 @@
       },
       "581733356354666507": {
         "name": "史上無敵霹靂最變態的奈米",
-        "today": "False",
-        "month": 6,
-        "total": 10
+        "today": "True",
+        "month": 9,
+        "total": 28
       },
       "544842488003821573": {
         "name": "ฅ比呆ฅ",
-        "today": "True",
-        "month": 12,
-        "total": 15
-      },
-      "529217148602810368": {
-        "name": "秋明",
-        "today": "True",
-        "month": 16,
-        "total": 19
+        "today": "False",
+        "month": 8,
+        "total": 27
       },
       "356556383958597632": {
         "name": "JoJo 데이지",
         "today": "False",
-        "month": 2,
+        "month": 0,
         "total": 4
       },
       "466262559692161024": {
@@ -170,7 +187,7 @@
       "394299491588636672": {
         "name": "星野楓 Hoshino kaede",
         "today": "False",
-        "month": 2,
+        "month": 0,
         "total": 4
       },
       "562905967071592450": {
@@ -182,7 +199,7 @@
       "402383436691800064": {
         "name": "ღ茶寶ღ",
         "today": "False",
-        "month": 3,
+        "month": 0,
         "total": 4
       },
       "323398999371415553": {
@@ -194,84 +211,528 @@
       "296638869443444737": {
         "name": "神人 Tamq_Mae_God",
         "today": "False",
-        "month": 3,
+        "month": 0,
         "total": 5
       },
       "483207677741236235": {
         "name": "天夜的老婆",
         "today": "False",
-        "month": 5,
+        "month": 0,
         "total": 6
       },
       "611428006258278401": {
         "name": "康娜",
         "today": "False",
-        "month": 2,
-        "total": 2
+        "month": 0,
+        "total": 5
       },
       "754992299829624883": {
         "name": "✎๓回憶那麼傷๓₯",
         "today": "False",
-        "month": 6,
-        "total": 6
+        "month": 0,
+        "total": 7
       },
       "465859319221583872": {
         "name": "霈霈RBT_Nimi_cat(^._.^)ﾉ",
-        "today": "True",
+        "today": "False",
         "month": 6,
-        "total": 6
+        "total": 17
       },
       "716226534699958302": {
         "name": "小鹿",
-        "today": "False",
-        "month": 6,
-        "total": 6
+        "today": "True",
+        "month": 7,
+        "total": 20
       },
       "331114571194433537": {
         "name": "墨言",
         "today": "False",
-        "month": 1,
+        "month": 0,
         "total": 1
       },
       "407028698693238794": {
         "name": "烏牙",
         "today": "False",
-        "month": 1,
-        "total": 1
-      },
-      "807913328034578462": {
-        "name": "紫凤潇龙",
-        "today": "False",
-        "month": 1,
+        "month": 0,
         "total": 1
       },
       "366432326718062603": {
         "name": "̶D̶i̶b̶u̶",
         "today": "False",
-        "month": 3,
-        "total": 3
+        "month": 1,
+        "total": 5
       },
       "598705124634001410": {
         "name": "〆奶茶✿花火∮",
-        "today": "False",
+        "today": "True",
         "month": 4,
-        "total": 4
+        "total": 14
       },
       "660418542285357056": {
         "name": "r.w",
-        "today": "False",
-        "month": 2,
-        "total": 2
+        "today": "True",
+        "month": 5,
+        "total": 13
       },
       "739457343586041876": {
         "name": "一個你生命中的過客",
-        "today": "True",
-        "month": 3,
-        "total": 3
+        "today": "False",
+        "month": 0,
+        "total": 7
       },
       "693376906619387934": {
         "name": "smallwolf1013_TW 等待β小祐兒",
         "today": "False",
+        "month": 0,
+        "total": 4
+      },
+      "613691399099121684": {
+        "name": "HeilunNotFound",
+        "today": "False",
+        "month": 0,
+        "total": 1
+      },
+      "475319442541117441": {
+        "name": "空空",
+        "today": "False",
+        "month": 0,
+        "total": 1
+      },
+      "193658867110903808": {
+        "name": "寧兒",
+        "today": "False",
+        "month": 5,
+        "total": 5
+      }
+    },
+    "game": {
+      "lottery": [
+        18,
+        17,
+        14,
+        22,
+        21,
+        9,
+        6,
+        25,
+        24,
+        1,
+        12,
+        20,
+        8
+      ]
+    }
+  },
+  "731522892264767498": {
+    "name": "康娜的后宮園❤",
+    "settings": {
+      "ann_time": "08",
+      "admin": [
+        480906273026473986
+      ],
+      "stop": 0,
+      "channel": 0
+    },
+    "user": {
+      "611428006258278401": {
+        "name": "康娜カンナ",
+        "today": "True",
+        "month": 5,
+        "total": 5
+      },
+      "702925912542412860": {
+        "name": "宅宅EN展仔",
+        "today": "True",
+        "month": 5,
+        "total": 5
+      },
+      "769498234590593055": {
+        "name": "Duncan➳",
+        "today": "True",
+        "month": 3,
+        "total": 3
+      },
+      "713944319144493136": {
+        "name": "IAmRealTyper_hk",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "732106160219488300": {
+        "name": "smallorange_小橘",
+        "today": "True",
+        "month": 2,
+        "total": 2
+      },
+      "771324175922364418": {
+        "name": "超級好吃的蓮藕๑ʙᴀᴏღ*",
+        "today": "True",
+        "month": 2,
+        "total": 2
+      },
+      "694929630808899635": {
+        "name": "黄小鸭",
+        "today": "True",
+        "month": 4,
+        "total": 4
+      },
+      "594312193089208334": {
+        "name": "Eurika",
+        "today": "True",
+        "month": 5,
+        "total": 5
+      },
+      "773887182485192705": {
+        "name": "織田千束",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "616898943904776202": {
+        "name": "咻咻咻",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "692305128556068924": {
+        "name": "wingchu",
+        "today": "False",
+        "month": 2,
+        "total": 2
+      },
+      "728496698418135091": {
+        "name": "布布",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "598705124634001410": {
+        "name": "〆奶茶✿花火∮",
+        "today": "True",
+        "month": 2,
+        "total": 2
+      },
+      "278205807605317632": {
+        "name": "老人/錒金",
+        "today": "True",
+        "month": 5,
+        "total": 5
+      },
+      "462621584339894284": {
+        "name": "Nickwong001",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "415418413138051073": {
+        "name": "Stene21",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "786229512597536769": {
+        "name": "稜空-Leng kong 📍",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "621334966634151938": {
+        "name": "彌玥Miyu",
+        "today": "True",
+        "month": 4,
+        "total": 4
+      },
+      "816912377978290207": {
+        "name": "{初鈴愛莉姆😪}",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "403121313830666242": {
+        "name": "XSOOOOONBL",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "236781160741601285": {
+        "name": "!CAT",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "376372366936375296": {
+        "name": "SC_candy",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "483272033837252609": {
+        "name": "ℋ𝒦𝒮𝓉𝑜𝓃𝑒𝓀𝒾𝒹",
+        "today": "True",
+        "month": 5,
+        "total": 5
+      },
+      "693335925652062219": {
+        "name": "無名",
+        "today": "True",
+        "month": 5,
+        "total": 5
+      },
+      "518732668678963200": {
+        "name": "卡比",
+        "today": "True",
+        "month": 2,
+        "total": 2
+      },
+      "643448758205546516": {
+        "name": "跡部精市",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "603641607023230991": {
+        "name": "AwA",
+        "today": "True",
+        "month": 5,
+        "total": 5
+      },
+      "743387671384293386": {
+        "name": "Dandelion/Catsear",
+        "today": "True",
+        "month": 5,
+        "total": 5
+      },
+      "616948204797165569": {
+        "name": "小鬼",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "498168126253563907": {
+        "name": "Legend_Little_Cat",
+        "today": "True",
+        "month": 2,
+        "total": 2
+      },
+      "727063520591609906": {
+        "name": "蘑菇菇 𝕄𝕦𝕤𝕙",
+        "today": "True",
+        "month": 5,
+        "total": 5
+      },
+      "300176226369142788": {
+        "name": "Jason86",
+        "today": "False",
+        "month": 2,
+        "total": 2
+      },
+      "805875042726051880": {
+        "name": "伊藤誠",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "733209344828768297": {
+        "name": "宗介",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "695960498201690142": {
+        "name": "尛貓",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "733297866134519868": {
+        "name": "絶対に強い",
+        "today": "False",
+        "month": 2,
+        "total": 2
+      },
+      "691839767637262367": {
+        "name": "Smhedan",
+        "today": "True",
+        "month": 4,
+        "total": 4
+      },
+      "470618647493345281": {
+        "name": "BatonRL",
+        "today": "True",
+        "month": 3,
+        "total": 3
+      },
+      "667251570739773450": {
+        "name": "尾.",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "669427101195042817": {
+        "name": "諾亞 · 梅露",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "482095945920806922": {
+        "name": "名字是什麼",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "763717605377966120": {
+        "name": "無法加載",
+        "today": "True",
+        "month": 5,
+        "total": 5
+      },
+      "775343902525620237": {
+        "name": "砂狸",
+        "today": "False",
+        "month": 2,
+        "total": 2
+      },
+      "269841559472570369": {
+        "name": "vCJD",
+        "today": "True",
+        "month": 4,
+        "total": 4
+      },
+      "728204841842769992": {
+        "name": "i am suck and thx",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "678263585352187945": {
+        "name": "sunny8335",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "753602161245552790": {
+        "name": "酸檸",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "387823314665734146": {
+        "name": "克利夫",
+        "today": "True",
+        "month": 4,
+        "total": 4
+      },
+      "519885732643340299": {
+        "name": "cMnIcKy0x0",
+        "today": "False",
+        "month": 3,
+        "total": 3
+      },
+      "657795197639589908": {
+        "name": "paulso",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "588661969050009600": {
+        "name": "李安導演👻",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "594490046900338689": {
+        "name": "かいそう",
+        "today": "True",
+        "month": 2,
+        "total": 2
+      },
+      "699607601452810281": {
+        "name": "灰塵",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "577854007347904513": {
+        "name": "jjjjjjj",
+        "today": "False",
+        "month": 2,
+        "total": 2
+      },
+      "688303897093210114": {
+        "name": "小惡魔🖤💔抱住妹妹",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "758709100871417937": {
+        "name": "凜銀",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "485322633190047754": {
+        "name": "ℒℴѵℯ·松果·ﻬ°",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "630050135795171328": {
+        "name": "はる",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "601766122022502402": {
+        "name": "諾諾卡布奇諾",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "584636726421487637": {
+        "name": "高星宇",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "468262852944330762": {
+        "name": "shirakamifubuki",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "624870923048321025": {
+        "name": "OL",
+        "today": "False",
+        "month": 1,
+        "total": 1
+      },
+      "736789003738677330": {
+        "name": "小黑black",
+        "today": "True",
+        "month": 1,
+        "total": 1
+      },
+      "366820859463204866": {
+        "name": "錒極.",
+        "today": "True",
+        "month": 1,
+        "total": 1
+      },
+      "689885764062019712": {
+        "name": "愿你·夜里有灯",
+        "today": "True",
+        "month": 1,
+        "total": 1
+      },
+      "605339739343814666": {
+        "name": "xMiaaaa_",
+        "today": "True",
+        "month": 1,
+        "total": 1
+      },
+      "799888489553985537": {
+        "name": "清空",
+        "today": "True",
         "month": 1,
         "total": 1
       }
