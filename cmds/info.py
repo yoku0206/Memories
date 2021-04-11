@@ -11,6 +11,12 @@ jdata = default.Settings_Load()
 
 class Infomation(Cog_Extension, name='資訊', description='有關資訊的內容都在這！'):
 
+    @commands.command(aliases=['tg'])
+    async def time_get(self, ctx):
+        await ctx.message.delete()
+        time = default.time_get()
+        await ctx.send(time)
+
     @commands.command(name="關於", aliases=['about', 'stats', 'status'])
     async def about(self, ctx):
         """ 關於機器人 """

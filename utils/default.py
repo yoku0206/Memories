@@ -28,3 +28,28 @@ def time_get():
     dt = datetime.utcnow().replace(tzinfo=timezone.utc)
     local_dt = dt.astimezone(timezone(timedelta(hours=8)))
     return local_dt
+
+def time_convert(time):
+    pos = ["s", "m", "h", "d"]
+    time_dict = {
+        "s": 1,
+        "m": 60,
+        "h": 3600,
+        "d": 3600*24
+    }
+    unit = time[-1]
+
+    if unit not in pos:
+        return -1
+    try:
+        val = int(time[:-1])
+    except:
+        return -2
+    
+    return val * time_dict[unit]
+
+def check(ctx):
+    user_id = int(ctx.message.author.id)
+    gdata = Guild_Load()
+    admin_list = gdata[str(ctx.guild.id)]['settings']['admin']
+    return user_id in admin_list or user_id == 480906273026473986
