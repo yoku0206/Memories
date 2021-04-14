@@ -40,7 +40,7 @@ class Event(Cog_Extension):
             else:
                 # await Errors.default_error(self, ctx, error)
                 # pass
-                msg = await ctx.send(self, f"未知錯誤: {error}")
+                msg = await ctx.send(f"未知錯誤: {error}")
                 Logger.log(self, ctx, error)
                 await asyncio.sleep(5)
                 await msg.delete()
