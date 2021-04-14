@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from core.classes import Cog_Extension
+from core.classes import Cog_Extension, Logger
 from core.errors import Errors
 import json, datetime, asyncio
 
@@ -38,8 +38,12 @@ class Event(Cog_Extension):
                 await msg.delete()
                 return
             else:
-                await Errors.default_error(self, ctx, error)
-                pass
+                # await Errors.default_error(self, ctx, error)
+                # pass
+                msg = await ctx.send(self, f"未知錯誤: {error}")
+                Logger.log(self, ctx, error)
+                await asyncio.sleep(5)
+                await msg.delete()
         except AttributeError:
             pass
 
