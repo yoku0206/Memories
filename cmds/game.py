@@ -141,7 +141,11 @@ class Game(Cog_Extension):
 
             await my_msg.add_reaction("🎉")
 
-            await asyncio.sleep(time)
+            old_user = 0
+
+            while time != 0:
+                time -= 1
+                await asyncio.sleep(1)
 
             new_msg = await channel.fetch_message(my_msg.id)
 

@@ -262,12 +262,12 @@ class Main(Cog_Extension):
             embed.set_footer(text="簽到機器人 By 天夜Yoku#6529", icon_url=f"{ctx.bot.user.avatar_url}")
             await ctx.send(embed=embed)
 
-            yoku = ctx.guild.get_member(480906273026473986)
-            try:
-                yoku_channel = await yoku.create_dm()
-                await yoku_channel.send(f"[{Setting.time_get(self).strftime('%m/%d %H:%M')}] {ctx.guild.name} {ctx.author.name} 簽到！\n舊本月簽到天數： {old_month}\n舊總共簽到天數： {old_total}\n新本月簽到天數： {month}\n新總共簽到天數： {total}")
-            except:
-                print(f"無法傳送訊息給 {yoku.name}")
+            # yoku = ctx.guild.get_member(480906273026473986)
+            # try:
+            #     yoku_channel = await yoku.create_dm()
+            #     await yoku_channel.send(f"[{Setting.time_get(self).strftime('%m/%d %H:%M')}] {ctx.guild.name} {ctx.author.name} 簽到！\n舊本月簽到天數： {old_month}\n舊總共簽到天數： {old_total}\n新本月簽到天數： {month}\n新總共簽到天數： {total}")
+            # except:
+            #     print(f"無法傳送訊息給 {yoku.name}")
 
             print(f"新本月簽到天數： {month}\n新總共簽到天數： {total}")
 
