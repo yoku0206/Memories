@@ -257,7 +257,7 @@ class Main(Cog_Extension):
             total = gdata[str(ctx.guild.id)]['user'][str(ctx.author.id)]['total']
 
             embed = discord.Embed(title="**簽到成功**", description=f"你已成功簽到 **{days}** 天", 
-            color=ctx.author.color, timestamp=Setting.time_get(self))
+            color=ctx.author.color.random(), timestamp=Setting.time_get(self))
             embed.set_author(name=ctx.author.name + "#" + ctx.author.discriminator, icon_url=ctx.author.avatar_url)
             embed.set_footer(text="簽到機器人 By 天夜Yoku#6529", icon_url=f"{ctx.bot.user.avatar_url}")
             await ctx.send(embed=embed)
@@ -307,7 +307,7 @@ class Main(Cog_Extension):
         else:
             today_sign = "尚未簽到喔！"
 
-        embed = discord.Embed(title=f"{member.name}#{member.discriminator} **簽到記錄**", color=member.color, timestamp=Setting.time_get(self))
+        embed = discord.Embed(title=f"{member.name}#{member.discriminator} **簽到記錄**", color=member.color.random(), timestamp=Setting.time_get(self))
         embed.set_thumbnail(url=member.avatar_url)
         embed.add_field(name="本日簽到", value=f"**`{today_sign}`**", inline=False)
         embed.add_field(name=f"{now_month_name} 簽到天數", value=f"**`{month_sign}`**", inline=True)

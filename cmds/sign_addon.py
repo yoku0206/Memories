@@ -31,7 +31,7 @@ class Sign_Addon(Cog_Extension):
         em = []
         for page in range(data_page):
             embed = discord.Embed(title= f"{ctx.guild.name}", description= f"**簽到天數排行榜**",
-            color=ctx.author.color, timestamp=default.time_get())
+            color=ctx.author.color.random(), timestamp=default.time_get())
             embed.set_thumbnail(url=ctx.guild.icon_url)
             embed.set_footer(text=f"Page: {page + 1}/{data_page}", icon_url=f"{ctx.bot.user.avatar_url}")
             for i in range((page) * 10, ((page + 1) * 10)):

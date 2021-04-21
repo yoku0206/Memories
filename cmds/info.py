@@ -3,7 +3,8 @@ from discord.ext import commands
 from discord.ext.commands import Greedy, Converter, MemberConverter
 from core.classes import Cog_Extension
 from utils import default
-import json, asyncio, os, psutil, datetime
+import json, asyncio, os, datetime
+import psutil
 
 
 jdata = default.Settings_Load()
