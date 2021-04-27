@@ -262,6 +262,9 @@ class Main(Cog_Extension):
             embed.set_footer(text="簽到機器人 By 天夜Yoku#6529", icon_url=f"{ctx.bot.user.avatar_url}")
             await ctx.send(embed=embed)
 
+            if gdata[str(ctx.guild.id)]['user'][str(ctx.author.id)]['name'] != str(ctx.author.name):
+                gdata[str(ctx.guild.id)]['user'][str(ctx.author.id)]['name'] = str(ctx.author.name)
+
             # yoku = ctx.guild.get_member(480906273026473986)
             # try:
             #     yoku_channel = await yoku.create_dm()
